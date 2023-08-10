@@ -1,0 +1,94 @@
+rom productos import Producto
+from utilitarios import input_int
+
+menu = """CAFETIN SENATI 
+    1. DESAYUNO
+    2. ALMUERZO
+    3. CENA
+    4. EXTRAS
+"""
+jq = Producto("juego de quinua", 2, 50)
+#lista_cafetin = [
+    #{"desayuno":[jq]},
+    #{"almuerzo":[]},
+    #{"cena":[]},
+    #{"extras":[]},
+#]
+lista_producto = []
+lista_almuerzos =[]
+lista_cena = []
+lista_extras = []
+def crear_producto(list_product):
+    nombre_p = input("Nombre del producto: ")
+    precio_p = input_int("Precio del producto: ", "no ingresaste bien el precio")
+    stock_p = input_int("Stock del producto: ", "no ingresaste bien el stock")
+    item_p = Producto(nombre_p, precio_p, stock_p)
+    list_product.append(item_p)
+
+p = Producto("JUGO DE QUINUA", 2, 50)
+c = Producto("PAN CON QUINUA", 2, 50)
+lista_producto.append(p)
+lista_producto.append(c)
+
+s = Producto("SECO DE POLLO", 7, 50)
+b = Producto("CHIFA", 10, 50)
+lista_almuerzos.append(s)
+lista_almuerzos.append(b)
+
+l = Producto("lomo saltado", 7, 50)
+po = Producto("pollo dorado", 10, 50)
+lista_cena.append(l)
+lista_cena.append(po)
+
+pa = Producto("parrillada", 7, 50)
+a = Producto("arroz chaufa", 10, 50)
+lista_extras.append(pa)
+lista_extras.append(a)
+
+def listar_producto(list_product):
+    contador = 0
+    for item in list_product:
+        contador += 1
+        print(f"{contador}.{ item.get_info_completa()}")
+
+def vender_producto(product_selected, cantidad):
+
+
+
+
+# listar_producto(lista_producto)
+    print(menu)
+opcion = input_int("Elija una opcion: ", "No existe esta opcion")
+if opcion == 1:
+    listar_producto(lista_producto)
+    opcion_desayuno = input_int("Elija un desayuno: ", "No existe esta opcion")
+    producto_seleccionado = lista_producto[opcion_desayuno - 1]
+    pregunta = input_int("cual es la cantidad que deseas: ", "No existe esta opcion")
+    vender_producto(producto_seleccionado, pregunta)
+    subtotal = producto_seleccionado.get_precio() * pregunta
+    print(producto_seleccionado.get_nombre)
+    print(pregunta)
+    print(subtotal)
+    print(ticket_venta())
+
+
+    # print(producto_seleccionado.get_info_completa())
+    
+elif opcion == 2:
+    listar_producto(lista_almuerzos)
+    opcion = input_int("Elija un almuerzo: ", "No existe esta opcion")
+elif opcion == 3:
+    listar_producto(lista_cena)   
+elif opcion == 4:
+    listar_producto(lista_extras)    
+    
+    
+    
+    
+    
+    #opcion_desayuno = input_int("Elija una opcion: ", "no existe esta opcion")
+    
+    # print(opcion_desayuno)
+    # if opcion_desayuno ==1:
+    #     print("pan con leche")
+
