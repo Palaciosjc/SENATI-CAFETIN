@@ -1,0 +1,25 @@
+class Producto:
+    def __init__(self, nombre,  precio, stock):
+        self.nombre = nombre
+        self.precio = precio
+        self.stock = stock
+    
+    def info(self):
+        return f"{self.nombre}  {self.stock}"
+    def vender_producto(product_selected, stock):
+    
+    def actualizar_cantidad(self, cantidad_vendida):
+        self.cantidad = self.stock - cantidad_vendida
+    
+    def get_nombre(self):
+        return self.nombre
+    
+   
+    
+    def get_info_completa(self):
+        return f"{ self.nombre }  { self.precio } { self.stock }"
+    
+
+p = Producto(1,1,1)
+print(p.get_info_completa())
+
